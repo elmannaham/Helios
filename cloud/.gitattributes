@@ -1,0 +1,2 @@
+# Les scripts tournent sous Linux : on garde des fins de ligne LF même si Git convertit en CRLF sous Windows.
+*.sh text eol=lf
