@@ -28,25 +28,12 @@ Fournisseurs possibles : **RunPod** (le plus simple, décrit ci-dessous), Lambda
 
 ## 3. Installer
 
-Sur la machine :
+Sur la machine, cloner le fork (il contient ce dossier `cloud/` en plus du code officiel) puis lancer l'installation :
 
 ```bash
 cd /workspace
-git clone --depth=1 https://github.com/PKU-YuanGroup/Helios.git
-```
-
-Le dossier `cloud/` n'existe que dans votre copie locale : copiez-le depuis votre PC (PowerShell, dans `D:\Helios`) en remplaçant `PORT` et `IP` par ceux affichés par RunPod dans « Connect » :
-
-```powershell
-scp -P PORT -r cloud root@IP:/workspace/Helios/
-```
-
-> Alternative : pousser ce dossier sur votre propre fork GitHub et cloner ce fork à la place.
-
-Puis, sur la machine :
-
-```bash
-cd /workspace/Helios
+git clone --depth=1 https://github.com/elmannaham/Helios.git
+cd Helios
 bash cloud/setup.sh            # Helios-Distilled (~81 Go)
 # bash cloud/setup.sh base     # ou : mid, all, none (sans téléchargement)
 ```
@@ -76,7 +63,7 @@ Conseils de prompt :
 - le nombre d'images est arrondi au multiple de 33 supérieur ;
 - en i2v/v2v, l'image est redimensionnée en 640×384.
 
-Les vidéos sont écrites dans `output_helios/helios-<modèle>/`. Récupération sur votre PC :
+Les vidéos sont écrites dans `output_helios/helios-<modèle>/`. Récupération sur votre PC (PowerShell), en remplaçant `PORT` et `IP` par ceux affichés par RunPod dans « Connect » (SSH activé, voir étape 2) :
 
 ```powershell
 scp -P PORT "root@IP:/workspace/Helios/output_helios/helios-distilled/*.mp4" .
